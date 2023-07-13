@@ -5,5 +5,8 @@ w = open ('textfile.txt', 'w')
 for i in slist :
     w.write (i)
     w.write ('\n')
+    
+    # refactoring below
+    # w.write (i + '\n')
 
 w.close()
