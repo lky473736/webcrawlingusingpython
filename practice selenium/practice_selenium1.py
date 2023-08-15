@@ -7,3 +7,5 @@ import selenium.webdriver.common.keys
 import time
 
 driver = webdriver.Chrome()
+
+# error : selenium pip3로 패키지 다운하였으나 vscode에서 인식 안됨 -> 내일 jupyter로 실험
