@@ -63,7 +63,7 @@ driver.implicitly_wait(15)
 num = int(input("사과 사진을 몇 개 이상 크롤링하시겠습니까? : "))
 
 for l in range (num) :
-    time.sleep(3)
+    time.sleep(1)
     '''xh8yej3_list = driver.find_elements(By.CSS_SELECTOR, 'img.xh8yej3')
     time.sleep(5)
     
@@ -78,25 +78,10 @@ for l in range (num) :
         print (k) # 2번째가 진짜
     '''
         
-    url = driver.find_elements(By.CSS_SELECTOR, 'img.xh8yej3')
-    for i in url : 
-        print (i.get_attribute('src'))   
+    url = driver.find_element(By.CSS_SELECTOR, '._aagu._aato ._aagv .xh8yej3').get_attribute('src')  
         
-    urllib.request.urlretrieve(url[l+1].get_attribute('src'), str(l+1) + '.jpg')
-             
-    '''time.sleep(5)
-    urllib.request.urlretrieve(url, str(l + 1) + '.jpg')'''
-    driver.find_element(By.CLASS_NAME, '_abl-').click() # 다음 버튼'
-
-'''
-driver.find_element_by_css_selector('.class명').click()
-driver.find_element_by_css_selector('.class명').send_keys('codingapple_test')
-driver.find_element_by_css_selector('.class명').send_keys(Keys.ENTER)  #엔터키입력'''
-
-'''
-find.element = 조건에 맞는 component 중 가장 첫번째 꺼 return
-find.elements = 조건에 맞는 component 전부를 리스트로 return
-'''
-
-# 어떤 div 안에 있는 class 찾기 (CSS selector)
-# -> .divclassname .classname (중간에 띄어쓰기 넣기)
+    urllib.request.urlretrieve(url, str(l+1) + '.jpg')
+    
+    nextbt = driver.find_element(By.CSS_SELECTOR, '._aaqg._aaqh .x1n2onr6').click()
+     
+    # 동영상은 셀레니움으로 에러뜸 -> try/except 문법 사용
