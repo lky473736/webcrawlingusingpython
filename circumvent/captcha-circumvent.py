@@ -44,17 +44,20 @@ try:
     inputpw = driver.find_element(By.ID, 'pw')
     inputpw.send_keys('password') # 글자 입력''' # 이렇게 하면 네이버가 알아챔 -> 복사 붙여넣기 방법으로 전환 (pyperclip 이용)
     
-    pyperclip.copy('username') # 아이디 복사
+    # pyperclip을 쓸 때 .copy('문자열')은 작동 안됨. 항상 .copy(변수)로 하고 앞에 변수(복붙하고 싶은 문자열로) 선언해주기
+    username = 'username' 
+    pyperclip.copy(username) # 아이디 복사 
     inputid = driver.find_element(By.ID, 'id')
     time.sleep(1)
-    inputid.send_keys(Keys.CONTROL, 'v') # 컨트롤 키 누른 상태로 v 키보드에 누르기 (시스템 안에서)
+    inputid.send_keys(Keys.COMMAND, 'v') # 컨트롤 키 누른 상태로 v 키보드에 누르기 (시스템 안에서) - 맥은 커맨드겠지?
     
     time.sleep(1)
     
-    pyperclip.copy('password') # 비밀번호 복사
+    password = 'password'
+    pyperclip.copy(password) # 비밀번호 복사
     inputpw = driver.find_element(By.ID, 'pw')
     time.sleep(1)
-    inputpw.send_keys(Keys.CONTROL, 'v') # 컨트롤 키 누른 상태로 v 키보드에 누르기 (시스템 안에서)
+    inputpw.send_keys(Keys.COMMAND, 'v') # 컨트롤 키 누른 상태로 v 키보드에 누르기 (시스템 안에서)
 
     time.sleep(1)
     
